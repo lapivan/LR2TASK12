@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath>
+
 double mysqrt(double x) {
     int terms = 20;
     if (x < 0) {
