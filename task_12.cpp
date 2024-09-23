@@ -1,17 +1,17 @@
 #include <iostream>
 
 double mysqrt(double x) {
-    int terms = 20;
-    // Начальное приближение
+   int terms = 20;
     double guess = x / 2.0; // Начинаем с половины числа
-    double previous_guess;
+    double previous_guess=0;
 
     for (int i = 0; i < terms; ++i) {
-        previous_guess = guess;
-        guess = (guess + x / guess) / 2.0; // Метод Ньютона
-        // Проверяем, достигли ли мы достаточной точности
-        if (guess == previous_guess)
+         if (guess == previous_guess)
             break;
+       previous_guess = guess;
+        guess = (guess + x / guess) / 2.0; // Метод Ньютона
+//        if (guess == previous_guess)
+//            break;
     }
 
     return guess;
