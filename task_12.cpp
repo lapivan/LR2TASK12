@@ -14,7 +14,8 @@ double mysqrt(double x) {
         if (guess == previous_guess)
             break;
     }
-
+    if (x==0)
+    guess = 0;
     return guess;
 }
 int main() {
@@ -26,6 +27,12 @@ std::cout << "Enter b: ";
 std::cin >> b;
 std::cout << "Enter c: ";
 std::cin >> c;
+if ((a == 0) && (b == 0) && (c == 0)) {
+    std::cout << "every number";
+}
+if ((a == 0) && (b == 0) && (c != 0)) {
+    std::cout << "no real roots";
+}
 d = (b * b) - (4 * a * c);
 if (d > 0) {
     t1 = (-b - mysqrt(d)) / (2 * a);
@@ -40,23 +47,33 @@ if (d > 0) {
     x4 = -mysqrt(t2);
     std::cout << x3 << x4; 
     }
+    else if(t2 == 0) {
+        x3 = 0;
+        std::cout << x3;
+    }
+
     if (t1 && t2 < 0)
     std::cout << "no real roots";
   
 }
 else if (d == 0) {
     t1 = (-b / (2 * a));
-    if (t1 >= 0) {
+    if (t1 > 0) {
     x1 = mysqrt(t1);
     x2 = -mysqrt(t1);
     std::cout << x1 << x2; 
+    }
+    if (t1 > 0) {
+    x1 = mysqrt(t1);
+    x2 = -mysqrt(t1);
+    std::cout << x1 << x2; 
+    }
+    else if (t1 == 0) {
+    x1 = mysqrt(t1);
+    std::cout << x1; 
+    }
     } 
     else 
     std::cout << "no real roots";
-}
-else 
-std::cout << "no real roots";
-
-
     return 0;
 }
