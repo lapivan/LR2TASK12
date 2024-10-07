@@ -18,7 +18,8 @@ double mysqrt(double x) {
         if (guess == previous_guess)
             break;
     }
-
+    if (x = 0)
+    guess = 0;
     return guess;
 }
 int main() {
@@ -33,7 +34,7 @@ std::cout << "Enter c: ";
 std::cin >> c;
 //замена t = x + 1/x
 d = (b * b) - (4 * a * (c - (2 * a)));
-if (d > 0) {
+if ((d > 0) && (a != 0)) {
     t1 = (-b - mysqrt(d)) / (2 * a);
     t2 = (-b + mysqrt(d)) / (2 * a);
     if (t1 >= 2 || t1 <= -2) {              //одз
@@ -60,6 +61,22 @@ else if (d = 0) {
     else 
     std::cout << "no real roots";
 }
+if (a == 0) {
+    x1 = 0;
+    d = (c * c) - (4 * b * b);
+    if (d > 0) {
+    x2 = (-c - mysqrt(d)) / (2 *b);
+    x3 = (-c + mysqrt(d)) / (2 *b);
+    std::cout << x1 << " " << x2 << " " << x3;
+    }
+    else if (d == 0) {
+        x2 = (-c / (2 * b));
+    std::cout << x1 << " " << x2;
+    }
+    else
+    std::cout << x1;
+}
+
 else 
 std::cout << "no real roots";
 
